@@ -12,3 +12,4 @@ toga_star/*/inputs.csv
 __pycache__/
 */__pycache__/
 real_data_gen/project_err_phase3.err
+*.tex

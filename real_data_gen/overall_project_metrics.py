@@ -45,6 +45,7 @@ def run_coin_flip_test(project_data, pass_rate):
     num_rows = len(df)
     coin_accuracy = []
     coin_f1 = []
+    coin_fail_accuracy = []
 
     iterations = int(np.ceil(10000 / num_rows))
 
@@ -73,12 +74,16 @@ def run_coin_flip_test(project_data, pass_rate):
                 coin_fp += 1
         accuracy = (coin_tp + coin_tn) / num_rows if num_rows > 0 else 0
         f1 = (2 * coin_tp) / (2 * coin_tp + coin_fp + coin_fn) if (2 * coin_tp + coin_fp + coin_fn) > 0 else 0
+        fail_accuracy = (coin_tn) / (coin_tn + coin_fp) if (coin_tn + coin_fp) > 0 else 0
+
         coin_accuracy.append(accuracy)
         coin_f1.append(f1)
+        coin_fail_accuracy.append(fail_accuracy)
 
     average_coin_accuracy = np.round(np.mean(coin_accuracy), 4)
     average_coin_f1 = np.round(np.mean(coin_f1), 4)
-    return average_coin_accuracy, average_coin_f1
+    average_coin_fail_accuracy = np.round(np.mean(coin_fail_accuracy), 4)
+    return average_coin_accuracy, average_coin_f1, average_coin_fail_accuracy
 
 
 
@@ -128,7 +133,7 @@ def generate_vocab_data(temp, threshold, project):
     return temp_df, valid_ind
 
 
-def generate_results_data(project, path, valid_ind, coin_acc=None, coin_f1=None):
+def generate_results_data(project, path, valid_ind, coin_acc=None, coin_f1=None, coin_fail_acc=None):
     results_project = {}
     project_data = pd.read_csv(f"{path}/{project}/test_stats.csv")
     project_data = project_data.reindex(valid_ind).reset_index(drop=True)
@@ -173,21 +178,26 @@ def generate_results_data(project, path, valid_ind, coin_acc=None, coin_f1=None)
 
     # Coin flip test
     if (coin_acc == None):
-        results_project["coin_accuracy"], results_project["coin_f1"] = run_coin_flip_test(project_data, results_project["pass_rate"])
-        results_project["accuracy_improvement"] = np.round(results_project["accuracy"] - results_project["coin_accuracy"], 4)
-        return results_project, results_project["coin_accuracy"], results_project["coin_f1"]
+        results_project["coin_accuracy"], results_project["coin_f1"], results_project["coin_fail_accuracy"] = run_coin_flip_test(project_data, results_project["pass_rate"])  
     else:
-        results_project["coin_accuracy"], results_project["coin_f1"] = coin_acc, coin_f1
-        results_project["accuracy_improvement"] = np.round(results_project["accuracy"] - results_project["coin_accuracy"], 4)
-        return results_project, coin_acc, coin_f1
+        results_project["coin_accuracy"], results_project["coin_f1"], results_project["coin_fail_accuracy"] = coin_acc, coin_f1, coin_fail_acc      
 
+    results_project["accuracy_improvement"] = np.round(results_project["accuracy"] - results_project["coin_accuracy"], 4)
+    results_project["f1_improvement"] = np.round(results_project["f1"] - results_project["coin_f1"], 4)
+    results_project["fail_accuracy_improvement"] = np.round(results_project["fail_accuracy"] - results_project["coin_fail_accuracy"], 4)
+
+    if (coin_acc == None):
+        return results_project, results_project["coin_accuracy"], results_project["coin_f1"], results_project["coin_fail_accuracy"]
+    else:
+        return results_project, coin_acc, coin_f1, coin_fail_acc
 
 def calculate_overall_metrics(projects, comment_types=["no_comments", "comments", "added_comments"], thresholds=[1.0, 0.50, 0.25, 0.10, 0.05]):
 
     coin_acc_dict = {}
     coin_f1_dict = {}
+    coin_fail_acc_dict = {}
 
-    for comment_type in comment_types:
+    for comment_type in tqdm(comment_types, desc="Results by comment type"):
         path = f"./real_data_gen/fold0/{comment_type}"
 
         # Vocab analysis
@@ -207,7 +217,7 @@ def calculate_overall_metrics(projects, comment_types=["no_comments", "comments"
             "out_vocab_combined_ratio",
         ]
 
-        for threshold in tqdm(thresholds, desc="Results by Threshold"):
+        for threshold in tqdm(thresholds, desc="Results by Threshold", leave=False):
             threshold_string = "{:.2f}".format(threshold).replace(".", "")[1:] if threshold != 1.0 else "all"
             # Initialize data objects
             vocab_summary = pd.DataFrame(columns=columns_vocab_summary)
@@ -220,9 +230,9 @@ def calculate_overall_metrics(projects, comment_types=["no_comments", "comments"
                 vocab_summary = pd.concat([vocab_summary, temp_df], ignore_index=True)
                 # Results analysis
                 if (project in coin_acc_dict):
-                    results_project, _, _ = generate_results_data(project, path, valid_ind, coin_acc=coin_acc_dict[project], coin_f1=coin_f1_dict[project])
+                    results_project, _, _, _ = generate_results_data(project, path, valid_ind, coin_acc=coin_acc_dict[project], coin_f1=coin_f1_dict[project], coin_fail_acc=coin_fail_acc_dict[project])
                 else:
-                    results_project, coin_acc_dict[project], coin_f1_dict[project] = generate_results_data(project, path, valid_ind)
+                    results_project, coin_acc_dict[project], coin_f1_dict[project], coin_fail_acc_dict[project] = generate_results_data(project, path, valid_ind)
                 results_dict[project] = results_project
 
             vocab_summary.loc["all", "project"] = "all"
@@ -263,7 +273,7 @@ def calculate_overall_metrics(projects, comment_types=["no_comments", "comments"
                 )
                 .set_index("project")
             )
-            sorting.sort_values(by=["accuracy_improvement"], ascending=False, inplace=True)
+            sorting.sort_values(by=["fail_accuracy_improvement"], ascending=False, inplace=True)
 
             # Adding totals
             sorting.loc["all", "N"] = np.sum(sorting["N"])
@@ -283,13 +293,13 @@ def calculate_overall_metrics(projects, comment_types=["no_comments", "comments"
             overall_results_df = pd.read_csv(f"{path}/test_stats.csv")
 
             if (not 'all' in coin_acc_dict):
-                coin_acc_dict['all'], coin_f1_dict['all'] = run_coin_flip_test(overall_results_df, sorting.loc["all", "pass_rate"])
+                coin_acc_dict['all'], coin_f1_dict['all'], coin_fail_acc_dict["all"] = run_coin_flip_test(overall_results_df, sorting.loc["all", "pass_rate"])
 
-            (sorting.loc["all", "coin_accuracy"], sorting.loc["all", "coin_f1"]) = coin_acc_dict["all"], coin_f1_dict['all']
+            (sorting.loc["all", "coin_accuracy"], sorting.loc["all", "coin_f1"], sorting.loc["all", "coin_fail_accuracy"]) = coin_acc_dict["all"], coin_f1_dict["all"], coin_fail_acc_dict["all"]
 
-            sorting.loc["all", "accuracy_improvement"] = np.round(
-                sorting.loc["all", "accuracy"] - sorting.loc["all", "coin_accuracy"], 4
-            )
+            sorting.loc["all", "accuracy_improvement"] = np.round(sorting.loc["all", "accuracy"] - sorting.loc["all", "coin_accuracy"], 4)
+            sorting.loc["all", "f1_improvement"] = np.round(sorting.loc["all", "f1"] - sorting.loc["all", "coin_f1"], 4)
+            sorting.loc["all", "fail_accuracy_improvement"] = np.round(sorting.loc["all", "fail_accuracy"] - sorting.loc["all", "coin_fail_accuracy"], 4)
 
             sorting = sorting.astype({"fn": "int32", "tn": "int32", "fp": "int32", "tp": "int32", "N": "int32"})
 
