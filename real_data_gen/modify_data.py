@@ -78,6 +78,6 @@ df_no_comments.to_json("./real_data_gen/triplets/no_comments/triplets.json", ori
 
 df_added_comments = df_no_comments.copy()
 df_added_comments["T"] = df_no_comments.apply(
-    lambda row: row["T"][:-1] + "// Undeclared exception!" + row["T"][-1:], axis=1
+    lambda row: row["T"][:-1] + "// report (Exception) diagnose problems debugging might be helpful" + row["T"][-1:], axis=1
 )
 df_added_comments.to_json("./real_data_gen/triplets/added_comments/triplets.json", orient="index", indent=4)
