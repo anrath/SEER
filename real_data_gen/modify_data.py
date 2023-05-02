@@ -38,7 +38,7 @@ def apply_regex(df):
     return temp_df
 
 
-folder_dir = "./toga_star"
+folder_dir = "./new_data"
 
 colnames = ["dataset", "project", "bug_id", "C", "T", "docstring"]
 df = pd.DataFrame(columns=colnames)
@@ -50,7 +50,7 @@ for project in tqdm(folder_names, desc="Reading project data"):
     temp_df = pd.read_csv(project_path + "/inputs.csv")
     temp_df.columns = ["C", "T", "docstring"]
     temp_df = temp_df.dropna()
-    temp_df["dataset"] = "toga*"
+    temp_df["dataset"] = "cs6888"
     temp_df["project"] = project
     temp_df["bug_id"] = "-1"
     df = pd.concat([df, temp_df], ignore_index=True, axis=0)
