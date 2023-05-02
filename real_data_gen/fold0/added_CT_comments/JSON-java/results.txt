@@ -1,0 +1,16 @@
+num_rows: 12911
+Number in Pass Class: 12710, 0.9844
+tp: 12707, 0.9842
+fp: 201, 0.0156
+pass accuracy: 12707/12710 = 0.9998
+
+Number in Fail Class: 201, 0.0156
+tn: 0, 0.0
+fn: 3, 0.0002
+fail accuracy: 0/201 = 0.0
+
+accuracy: 12707/12911 = 0.9842
+precision: 12707/12908 = 0.9844
+recall: 12707/12710 = 0.9998
+f1: 25414/25618 = 0.992
+

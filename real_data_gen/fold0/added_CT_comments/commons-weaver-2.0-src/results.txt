@@ -1,0 +1,16 @@
+num_rows: 232
+Number in Pass Class: 154, 0.6638
+tp: 152, 0.6552
+fp: 78, 0.3362
+pass accuracy: 152/154 = 0.987
+
+Number in Fail Class: 78, 0.3362
+tn: 0, 0.0
+fn: 2, 0.0086
+fail accuracy: 0/78 = 0.0
+
+accuracy: 152/232 = 0.6552
+precision: 152/230 = 0.6609
+recall: 152/154 = 0.987
+f1: 304/384 = 0.7917
+

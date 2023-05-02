@@ -1,312 +1,205 @@
-Reading project data...
-Cleaning text (0/6)...
-Cleaning text (2/6)...
+Cleaning text (0/8)...
+Cleaning text (2/8)...
 Applying REGEX...
-generating json and h5 files for all projects...
-generating json and h5 files for all projects...
-generating json and h5 files for all projects...
 /u/kl5sq/masters/SEER
 generating results for all projects...
 loading data...
 5438 entries
 reloaded model
-Average time per batch (size=1): 0.043426513671875
+Average time per batch (size=1): 0.03836774826049805
 loading data...
 1708 entries
 reloaded model
-Average time per batch (size=1): 0.04330039024353027
+Average time per batch (size=1): 0.038884878158569336
 loading data...
 163 entries
 reloaded model
-Average time per batch (size=1): 0.04433703422546387
+Average time per batch (size=1): 0.03983902931213379
 loading data...
 39866 entries
 reloaded model
-Average time per batch (size=1): 0.04495096206665039
+Average time per batch (size=1): 0.03944802284240723
 loading data...
 232 entries
 reloaded model
-Average time per batch (size=1): 0.04468584060668945
+Average time per batch (size=1): 0.03900790214538574
 loading data...
 3369 entries
 reloaded model
-Average time per batch (size=1): 0.04373502731323242
+Average time per batch (size=1): 0.03825783729553223
 loading data...
 2946 entries
 reloaded model
-Average time per batch (size=1): 0.042406320571899414
+Average time per batch (size=1): 0.039118051528930664
 loading data...
 27480 entries
 reloaded model
-Average time per batch (size=1): 0.045169830322265625
+Average time per batch (size=1): 0.038421630859375
 loading data...
 1072 entries
 reloaded model
-Average time per batch (size=1): 0.04330921173095703
+Average time per batch (size=1): 0.03851485252380371
 loading data...
 4562 entries
 reloaded model
-Average time per batch (size=1): 0.043384552001953125
+Average time per batch (size=1): 0.038054466247558594
 loading data...
 182 entries
 reloaded model
-Average time per batch (size=1): 0.04450225830078125
+Average time per batch (size=1): 0.03975200653076172
 loading data...
 1389 entries
 reloaded model
-Average time per batch (size=1): 0.044190406799316406
+Average time per batch (size=1): 0.03820157051086426
 loading data...
 1641 entries
 reloaded model
-Average time per batch (size=1): 0.044234275817871094
+Average time per batch (size=1): 0.039290666580200195
 loading data...
 8002 entries
 reloaded model
-Average time per batch (size=1): 0.04486513137817383
+Average time per batch (size=1): 0.03896307945251465
 loading data...
 4069 entries
 reloaded model
-Average time per batch (size=1): 0.045255184173583984
+Average time per batch (size=1): 0.03798556327819824
 loading data...
 2590 entries
 reloaded model
-Average time per batch (size=1): 0.04240226745605469
+Average time per batch (size=1): 0.03818082809448242
 loading data...
 2858 entries
 reloaded model
-Average time per batch (size=1): 0.043092966079711914
+Average time per batch (size=1): 0.03853964805603027
 loading data...
 12118 entries
 reloaded model
-Average time per batch (size=1): 0.043248653411865234
+Average time per batch (size=1): 0.03914189338684082
 loading data...
 15379 entries
 reloaded model
-Average time per batch (size=1): 0.04325056076049805
+Average time per batch (size=1): 0.040047645568847656
 loading data...
 12911 entries
 reloaded model
-Average time per batch (size=1): 0.04488372802734375
+Average time per batch (size=1): 0.03871345520019531
 loading data...
 1253 entries
 reloaded model
-Average time per batch (size=1): 0.044548749923706055
+Average time per batch (size=1): 0.03866910934448242
 loading data...
 2616 entries
 reloaded model
-Average time per batch (size=1): 0.043763160705566406
+Average time per batch (size=1): 0.03734183311462402
 loading data...
 11244 entries
 reloaded model
-Average time per batch (size=1): 0.04326057434082031
+Average time per batch (size=1): 0.039491891860961914
 loading data...
 731 entries
 reloaded model
-Average time per batch (size=1): 0.044086456298828125
+Average time per batch (size=1): 0.0397791862487793
 loading data...
 5280 entries
 reloaded model
-Average time per batch (size=1): 0.04324936866760254
+Average time per batch (size=1): 0.03920912742614746
 loading data...
 5438 entries
 reloaded model
-Average time per batch (size=1): 0.04345273971557617
+Average time per batch (size=1): 0.03825187683105469
 loading data...
 1708 entries
 reloaded model
-Average time per batch (size=1): 0.044595956802368164
+Average time per batch (size=1): 0.03888726234436035
 loading data...
 163 entries
 reloaded model
-Average time per batch (size=1): 0.04449796676635742
+Average time per batch (size=1): 0.03976273536682129
 loading data...
 39866 entries
 reloaded model
-Average time per batch (size=1): 0.04362678527832031
+Average time per batch (size=1): 0.03928828239440918
 loading data...
 232 entries
 reloaded model
-Average time per batch (size=1): 0.04526782035827637
+Average time per batch (size=1): 0.03957247734069824
 loading data...
 3369 entries
 reloaded model
-Average time per batch (size=1): 0.04505205154418945
+Average time per batch (size=1): 0.03774213790893555
 loading data...
 2946 entries
 reloaded model
-Average time per batch (size=1): 0.04335284233093262
+Average time per batch (size=1): 0.03823041915893555
 loading data...
 27480 entries
 reloaded model
-Average time per batch (size=1): 0.04371953010559082
+Average time per batch (size=1): 0.03918886184692383
 loading data...
 1072 entries
 reloaded model
-Average time per batch (size=1): 0.05111956596374512
+Average time per batch (size=1): 0.040288448333740234
 loading data...
 4562 entries
 reloaded model
-Average time per batch (size=1): 0.04309654235839844
+Average time per batch (size=1): 0.04028677940368652
 loading data...
 182 entries
 reloaded model
-Average time per batch (size=1): 0.05970358848571777
+Average time per batch (size=1): 0.0396122932434082
 loading data...
 1389 entries
 reloaded model
-Average time per batch (size=1): 0.04781818389892578
+Average time per batch (size=1): 0.038960933685302734
 loading data...
 1641 entries
 reloaded model
-Average time per batch (size=1): 0.0435943603515625
+Average time per batch (size=1): 0.03946852684020996
 loading data...
 8002 entries
 reloaded model
-Average time per batch (size=1): 0.04258155822753906
+Average time per batch (size=1): 0.03825068473815918
 loading data...
 4069 entries
 reloaded model
-Average time per batch (size=1): 0.042571067810058594
+Average time per batch (size=1): 0.03890585899353027
 loading data...
 2590 entries
 reloaded model
-Average time per batch (size=1): 0.042813777923583984
+Average time per batch (size=1): 0.039131879806518555
 loading data...
 2858 entries
 reloaded model
-Average time per batch (size=1): 0.04305887222290039
+Average time per batch (size=1): 0.038758039474487305
 loading data...
 12118 entries
 reloaded model
-Average time per batch (size=1): 0.044615983963012695
+Average time per batch (size=1): 0.03909111022949219
 loading data...
 15379 entries
 reloaded model
-Average time per batch (size=1): 0.044916629791259766
+Average time per batch (size=1): 0.03778386116027832
 loading data...
 12911 entries
 reloaded model
-Average time per batch (size=1): 0.04305887222290039
+Average time per batch (size=1): 0.03816843032836914
 loading data...
 1253 entries
 reloaded model
-Average time per batch (size=1): 0.04398202896118164
+Average time per batch (size=1): 0.03973746299743652
 loading data...
 2616 entries
 reloaded model
-Average time per batch (size=1): 0.043877363204956055
+Average time per batch (size=1): 0.04003429412841797
 loading data...
 11244 entries
 reloaded model
-Average time per batch (size=1): 0.04446864128112793
+Average time per batch (size=1): 0.038793325424194336
 loading data...
 731 entries
 reloaded model
-Average time per batch (size=1): 0.044263362884521484
+Average time per batch (size=1): 0.03842496871948242
 loading data...
 5280 entries
 reloaded model
-Average time per batch (size=1): 0.04360461235046387
-loading data...
-5438 entries
-reloaded model
-Average time per batch (size=1): 0.042845726013183594
-loading data...
-1708 entries
-reloaded model
-Average time per batch (size=1): 0.042496442794799805
-loading data...
-163 entries
-reloaded model
-Average time per batch (size=1): 0.04347944259643555
-loading data...
-39866 entries
-reloaded model
-Average time per batch (size=1): 0.04348635673522949
-loading data...
-232 entries
-reloaded model
-Average time per batch (size=1): 0.043426513671875
-loading data...
-3369 entries
-reloaded model
-Average time per batch (size=1): 0.044217586517333984
-loading data...
-2946 entries
-reloaded model
-Average time per batch (size=1): 0.04326605796813965
-loading data...
-27480 entries
-reloaded model
-Average time per batch (size=1): 0.044777631759643555
-loading data...
-1072 entries
-reloaded model
-Average time per batch (size=1): 0.04968881607055664
-loading data...
-4562 entries
-reloaded model
-Average time per batch (size=1): 0.04382157325744629
-loading data...
-182 entries
-reloaded model
-Average time per batch (size=1): 0.05916953086853027
-loading data...
-1389 entries
-reloaded model
-Average time per batch (size=1): 0.04443788528442383
-loading data...
-1641 entries
-reloaded model
-Average time per batch (size=1): 0.044014930725097656
-loading data...
-8002 entries
-reloaded model
-Average time per batch (size=1): 0.04419207572937012
-loading data...
-4069 entries
-reloaded model
-Average time per batch (size=1): 0.043465375900268555
-loading data...
-2590 entries
-reloaded model
-Average time per batch (size=1): 0.043549299240112305
-loading data...
-2858 entries
-reloaded model
-Average time per batch (size=1): 0.04297161102294922
-loading data...
-12118 entries
-reloaded model
-Average time per batch (size=1): 0.042717695236206055
-loading data...
-15379 entries
-reloaded model
-Average time per batch (size=1): 0.04246163368225098
-loading data...
-12911 entries
-reloaded model
-Average time per batch (size=1): 0.04490780830383301
-loading data...
-1253 entries
-reloaded model
-Average time per batch (size=1): 0.04335308074951172
-loading data...
-2616 entries
-reloaded model
-Average time per batch (size=1): 0.04428386688232422
-loading data...
-11244 entries
-reloaded model
-Average time per batch (size=1): 0.04369759559631348
-loading data...
-731 entries
-reloaded model
-Average time per batch (size=1): 0.05648994445800781
-loading data...
-5280 entries
-reloaded model
-Average time per batch (size=1): 0.04292011260986328
-Creating final results for each threshold value...
-Creating final results for each threshold value...
-Creating final results for each threshold value...
+Average time per batch (size=1): 0.0399012565612793

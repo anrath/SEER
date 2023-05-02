@@ -1,0 +1,16 @@
+num_rows: 2616
+Number in Pass Class: 2223, 0.8498
+tp: 2116, 0.8089
+fp: 391, 0.1495
+pass accuracy: 2116/2223 = 0.9519
+
+Number in Fail Class: 393, 0.1502
+tn: 2, 0.0008
+fn: 107, 0.0409
+fail accuracy: 2/393 = 0.0051
+
+accuracy: 2118/2616 = 0.8096
+precision: 2116/2507 = 0.844
+recall: 2116/2223 = 0.9519
+f1: 4232/4730 = 0.8947
+
