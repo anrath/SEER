@@ -14,8 +14,8 @@ if __name__ == "__main__":
         generate_results(result_path=f"./real_data_gen/fold0/no_comments/")
     else:
         if sys.argv[1] == "project":
-            # comment_types = ["no_comments", "comments", "added_comments"]
-            comment_types = ["added_comments"]
+            # comment_types = ["no_comments", "comments", "added_test_comments", "added_code_comments"]
+            comment_types = ["added_code_comments"]
             print(f"generating results for all projects...")
             df = pd.read_json(f"./real_data_gen/triplets/no_comments/triplets.json", orient="index")
             projects = list(df["project"].unique())
