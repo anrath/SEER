@@ -101,16 +101,12 @@ for i in tqdm(range(len(common_projects_df)), desc="Calculating project similari
         common_projects_df.loc[i, "phase2_unique_count"] = len(phase2_df)
 
         phase2_df["similarity"] = phase2_df.progress_apply(lambda row: max_similar(triplets_df, row["C"]), axis=1)
-        phase2_df[["sim_score", "triplets_index"]] = pd.DataFrame(
-            phase2_df["similarity"].tolist(), index=phase2_df.index
-        )
+        phase2_df[["sim_score", "triplets_index"]] = pd.DataFrame(phase2_df["similarity"].tolist(), index=phase2_df.index)
         phase2_df.index.rename("phase2_index", inplace=True)
         phase2_df.drop(columns=["similarity"], inplace=True)
         phase2_df.sort_values(by=["sim_score"], ascending=False, inplace=True)
 
-        phase2_df[["sim_score", "triplets_index"]].to_csv(
-            f"./real_data_gen/similarity_analysis/similarity_{phase2_name}.csv"
-        )
+        phase2_df[["sim_score", "triplets_index"]].to_csv(f"./real_data_gen/similarity_analysis/similarity_{phase2_name}.csv")
 
 common_projects_df = common_projects_df.astype({"triplets_unique_count": "int32", "phase2_unique_count": "int32"})
 common_projects_df.to_csv("./real_data_gen/similarity_analysis/similarity_unique_mut.csv", index=False)

@@ -14,8 +14,7 @@ if __name__ == "__main__":
         generate_results(result_path=f"./real_data_gen/fold0/no_comments/")
     else:
         if sys.argv[1] == "project":
-            # comment_types = ["no_comments", "comments", "added_test_comments", "added_code_comments", "added_CT_comments"]
-            comment_types = ["added_code_comments", "added_CT_comments"]
+            comment_types = ["no_comments", "comments", "added_test_comments", "added_code_comments", "added_CT_comments"]
             print(f"generating results for all projects...")
             df = pd.read_json(f"./real_data_gen/triplets/no_comments/triplets.json", orient="index")
             projects = list(df["project"].unique())
@@ -25,7 +24,7 @@ if __name__ == "__main__":
                     generate_results(result_path=f"./real_data_gen/fold0/{comment_type}/{project}/")
                 combine_project_data(projects=projects, comment_type=comment_type)
 
-            calculate_overall_metrics(projects=projects, comment_types=comment_types, thresholds=[1.0, 0.50, 0.25, .20, .15, 0.10, 0.05])
+            calculate_overall_metrics(projects=projects, comment_types=comment_types, thresholds=[1.0, 0.50, 0.25, 0.20, 0.15, 0.10, 0.05])
             for comment_type in comment_types:
                 generate_results(result_path=f"./real_data_gen/fold0/{comment_type}/")
 

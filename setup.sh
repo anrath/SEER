@@ -1,29 +1,17 @@
-# https://zenodo.org/record/6970062
-mkdir datasets
-cd datasets
-wget https://zenodo.org/record/6970062/files/phase1_dataset_final.zip
-wget https://zenodo.org/record/6970062/files/phase2_dataset_final_unseen.zip
-wget https://zenodo.org/record/6970062/files/phase2_dataset_final_whole.zip
+# Requires Python 3.6.9
+pip install -r requirements.txt
 
-unzip phase1_dataset_final.zip
-unzip phase2_dataset_final_unseen.zip
-mv phase2_dataset_final phase2_dataset_final_unseen
-unzip phase2_dataset_final_whole.zip
+echo("Unzipping Data")
+unzip new_data.zip
+cd real_data_gen/
+unzip vocab_phase2.zip
+cd triplets/
+unzip phase2.zip
 
-cd ../attention_analysis
-wget https://zenodo.org/record/6970062/files/attention_analysis.zip
-unzip attention_analysis.zip
-unzip TNs_attn_weights.zip
+echo("Downloading model weights")
+cd ../../output/
+wget  https://zenodo.org/record/6970062/files/epoch_29_fold_1.h5
 
-cd ../scripts
-wget https://zenodo.org/record/6970062/files/data.zip
-unzip data.zip
-
-cd ../embedding_analysis
-wget https://zenodo.org/record/6970062/files/epoch_21_fold_1.h5
-
-cd ../learning
-mkdir -p output/JointEmbedder/TestOracleInferencePhase2/202203201945/models
-cp ../attention_analysis/epoch_29_fold_1.h5 output/JointEmbedder/TestOracleInferencePhase2/202203201945/models/
-
-echo "Setup Complete"
+echo("Generating all the data, running classifier, generating results...")
+cd ../real_data_gen/
+sbatch zlurm.slurm

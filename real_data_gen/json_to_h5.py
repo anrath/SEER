@@ -55,11 +55,7 @@ def json_to_h5(type, fold, model, project="", comment_type="no_comments"):
             vocab_test = json.load(fr)
 
     if type == "test":
-        triplets_path = (
-            f"./real_data_gen/triplets/{comment_type}/triplets.json"
-            if project == ""
-            else f"./real_data_gen/triplets/{comment_type}/triplets_{project}.json"
-        )
+        triplets_path = f"./real_data_gen/triplets/{comment_type}/triplets.json" if project == "" else f"./real_data_gen/triplets/{comment_type}/triplets_{project}.json"
         with open(triplets_path, "r", encoding="ISO-8859-1", errors="ignore") as fr:
             tuples = json.load(fr)
     else:
@@ -152,6 +148,4 @@ def json_to_h5(type, fold, model, project="", comment_type="no_comments"):
 
 
 if __name__ == "__main__":
-    json_to_h5("test", 0, "JointEmbedder") if len(sys.argv) == 1 else json_to_h5(
-        "test", 0, "JointEmbedder", sys.argv[1]
-    )
+    json_to_h5("test", 0, "JointEmbedder") if len(sys.argv) == 1 else json_to_h5("test", 0, "JointEmbedder", sys.argv[1])

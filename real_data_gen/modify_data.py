@@ -13,7 +13,7 @@ def clean_text(df, remove_comments=True):
         if remove_comments:
             # Remove single line comments
             temp[col] = temp.progress_apply(lambda row: re.sub(r"\s*\/\/.*\n", "", row[col].strip()), axis=1)
-           # Remove multi-line comments
+            # Remove multi-line comments
             temp[col] = temp.progress_apply(lambda row: re.sub(r"\/\*\*.*\*\/", "", row[col]), axis=1)
         # Remove multiple spaces and line breaks
         temp[col] = temp.progress_apply(lambda row: re.sub(r"\s\s*", " ", row[col].strip()), axis=1)
@@ -79,21 +79,15 @@ df_comments.to_json("./real_data_gen/triplets/comments/triplets.json", orient="i
 df_no_comments.to_json("./real_data_gen/triplets/no_comments/triplets.json", orient="index", indent=4)
 
 df_added_test_comments = df_no_comments.copy()
-df_added_test_comments["T"] = df_added_test_comments.apply(
-    lambda row: row["T"][:-1] + "// report (Exception) diagnose problems debugging might be helpful" + row["T"][-1:], axis=1
-)
+df_added_test_comments["T"] = df_added_test_comments.apply(lambda row: row["T"][:-1] + "// report (Exception) diagnose problems debugging might be helpful" + row["T"][-1:], axis=1)
 df_added_test_comments.to_json("./real_data_gen/triplets/added_test_comments/triplets.json", orient="index", indent=4)
 
 
 df_added_code_comments = df_no_comments.copy()
-df_added_code_comments["C"] = df_added_code_comments.apply(
-    lambda row: row["C"][:-1] + "// report (Exception) diagnose problems debugging might be helpful" + row["C"][-1:], axis=1
-)
+df_added_code_comments["C"] = df_added_code_comments.apply(lambda row: row["C"][:-1] + "// report (Exception) diagnose problems debugging might be helpful" + row["C"][-1:], axis=1)
 df_added_code_comments.to_json("./real_data_gen/triplets/added_code_comments/triplets.json", orient="index", indent=4)
 
 
 df_added_CT_comments = df_added_code_comments.copy()
-df_added_CT_comments["T"] = df_added_CT_comments.apply(
-    lambda row: row["T"][:-1] + "// report (Exception) diagnose problems debugging might be helpful" + row["T"][-1:], axis=1
-)
+df_added_CT_comments["T"] = df_added_CT_comments.apply(lambda row: row["T"][:-1] + "// report (Exception) diagnose problems debugging might be helpful" + row["T"][-1:], axis=1)
 df_added_CT_comments.to_json("./real_data_gen/triplets/added_CT_comments/triplets.json", orient="index", indent=4)
