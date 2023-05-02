@@ -191,7 +191,7 @@ def generate_results_data(project, path, valid_ind, coin_acc=None, coin_f1=None,
     else:
         return results_project, coin_acc, coin_f1, coin_fail_acc
 
-def calculate_overall_metrics(projects, comment_types=["no_comments", "comments", "added_test_comments", "added_code_comments"], thresholds=[1.0, 0.50, 0.25, 0.10, 0.05]):
+def calculate_overall_metrics(projects, comment_types=["no_comments", "comments", "added_test_comments", "added_code_comments", "added_CT_comments"], thresholds=[1.0, 0.50, 0.25, 0.10, 0.05]):
 
     coin_acc_dict = {}
     coin_f1_dict = {}
