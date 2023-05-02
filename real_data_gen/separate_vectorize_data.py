@@ -10,6 +10,7 @@ if __name__ == "__main__":
     # Expect this to take ~30 minutes to run
     for comment_type in tqdm(comment_types, desc="comment versions"):
 
+        os.system(f"mkdir -p ./real_data_gen/fold0/{comment_type}")
         json_to_h5(
             type="test",
             fold=0,
