@@ -37,7 +37,7 @@ def main(args):
     model = getattr(models, args.model)(config)
 
     if args.reload_from>0:
-        ckpt_path = f'epoch_{args.reload_from}_fold_{args.fold_number}.h5'
+        ckpt_path = f'../output/epoch_{args.reload_from}_fold_{args.fold_number}.h5'
         model.load_state_dict(torch.load(ckpt_path, map_location=device))
         print('reloaded model')
     
