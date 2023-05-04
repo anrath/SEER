@@ -14,4 +14,4 @@ wget  https://zenodo.org/record/6970062/files/epoch_29_fold_1.h5
 
 echo "Generating all data from raw..."
 cd ../
-python3 ./real_data_gen/modify_data.py
+python ./real_data_gen/modify_data.py
