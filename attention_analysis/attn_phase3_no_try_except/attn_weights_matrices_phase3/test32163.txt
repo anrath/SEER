@@ -1,2 +1,0 @@
-32163
-Test: public void test35() throws Throwable { // Undeclared exception!  DateUtil.isSameTime((Date) null, (Date) null);   }

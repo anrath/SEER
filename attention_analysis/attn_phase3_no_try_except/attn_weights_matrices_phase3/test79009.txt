@@ -1,2 +1,0 @@
-79009
-Test: public void test21() throws Throwable { ObjectType objectType0 = Type.STRING; boolean boolean0 = objectType0.isAssignmentCompatibleWith(objectType0); }

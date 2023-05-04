@@ -1,2 +1,0 @@
-31014
-Test: public void test45() throws Throwable { ArrayDeque<Object> arrayDeque0 = new ArrayDeque<Object>(); arrayDeque0.add("hhGsSo)Kz3E."); Object object0 = CollectionUtil.getLast((Collection<Object>) arrayDeque0); }

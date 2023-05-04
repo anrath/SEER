@@ -1,2 +1,0 @@
-78997
-Test: public void test7() throws Throwable { ArrayType arrayType0 = new ArrayType("StackMap", 250); // Undeclared exception! arrayType0.isAssignmentCompatibleWith(arrayType0); }

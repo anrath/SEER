@@ -13,3 +13,7 @@ __pycache__/
 */__pycache__/
 real_data_gen/project_err_phase3.err
 *.tex
+attention_analysis/attn_phase3_no_try_except/*/*.txt
+attention_analysis/attn_phase3_no_try_except/*.zip
+attention_analysis/attn_weights_matrices/*.txt
+attention_analysis/attn_weights_matrices/*.zip

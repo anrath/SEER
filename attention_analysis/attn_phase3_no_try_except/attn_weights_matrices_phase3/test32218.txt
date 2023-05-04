@@ -1,2 +1,0 @@
-32218
-Test: public void test90() throws Throwable { MockDate mockDate0 = new MockDate(); boolean boolean0 = DateUtil.isSameTime(mockDate0, mockDate0); }

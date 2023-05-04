@@ -1,2 +1,0 @@
-79030
-Test: public void test46() throws Throwable { ArrayType arrayType0 = new ArrayType((byte)4, (byte)4); ArrayType arrayType1 = new ArrayType(arrayType0, (byte)4); boolean boolean0 = arrayType1.isAssignmentCompatibleWith(arrayType0); }
