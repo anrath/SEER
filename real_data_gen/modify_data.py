@@ -23,6 +23,8 @@ def clean_text(df, remove_comments=True):
 
 def apply_regex(df):
     temp_df = df.copy()
+    # r_single_line_comment = r"\s*\/\/.*\n"
+    # r_multi_line_comment = r"\/\*\*.*\*\/"
     r_try = r"try\s*{"
     r_fail = r"fail\([^;]*;\s*}"
     r_except = r"catch\([^}]*\s*}"

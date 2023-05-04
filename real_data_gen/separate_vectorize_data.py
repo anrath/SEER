@@ -6,7 +6,7 @@ from json_to_h5 import json_to_h5
 
 if __name__ == "__main__":
     comment_types = ["no_comments", "comments", "added_test_comments", "added_code_comments", "added_CT_comments"]
-    # Expect this to take ~30 minutes to run
+    # Expect this to take ~50 minutes to run
     for comment_type in tqdm(comment_types, desc="comment versions"):
 
         os.system(f"mkdir -p ./real_data_gen/fold0/{comment_type}")
