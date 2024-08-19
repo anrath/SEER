@@ -1,4 +1,5 @@
 # Insight into SEER
+See our paper [here](https://arxiv.org/abs/2311.01164).
 
 ## Reproducing original paper's results
 Our code is based on a fork of the SEER replication package. To read about their files, please consult [SEER_README.md](SEER_README.md). 
